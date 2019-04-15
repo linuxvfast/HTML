@@ -7,7 +7,7 @@ def runserver(environ,start_response):
     :return:
     '''
     start_response('200 OK',[('Content-Type','text/html')])
-    return ['<h1>Hello,web</h1>'.encode('utf-8')] #python2可以不用转换，直接输出结果，不必使用列表
+    return ['<h1>Hello,web</h1>'.encode('utf-8')] #python2可以不用转换，直接输出结果
 
 if __name__ == '__main__':
     http = make_server('',8000,runserver)
