@@ -6,7 +6,7 @@ def handler_index():
 def handler_date():
     return ['<h1>Hello,date!</h1>'.encode('utf-8')]
 
-dict_func = { #当有多个访问url时可以设置一个字典，不用多次修改runserver函数的代码
+dict_func = { #当有多个访问url时可以设置一个字典，不用多次修改runserver函数的代码，如果是太多的访问url，可以使用正则进行匹配
     '/index':handler_index,
     '/date':handler_date,
 }
