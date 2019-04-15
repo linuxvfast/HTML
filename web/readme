@@ -1,1 +1,2 @@
 如果需要添加数据库的操作，可以添加model目录，实现MVC，也可以将controller存放业务处理函数，view修改为template实现MTV框架
+使用pycharm创建的django项目，如果django已经启动时文件有修改，Ctrl+s时django会自动重启
