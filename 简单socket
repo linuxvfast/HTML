@@ -1,0 +1,18 @@
+from wsgiref.simple_server import make_server
+
+def runserver(environ,start_response):
+    '''
+    :param environ: 客户来的所有数据
+    :param start_response: 封装要返回给用户的数据，如响应头状态
+    :return:
+    '''
+    start_response('200 OK',[('Content-Type','text/html')])
+    return ['<h1>Hello,web</h1>'.encode('utf-8')] #python2可以不用转换，直接输出结果，不必使用列表
+
+if __name__ == '__main__':
+    http = make_server('',8000,runserver)
+    print('serving http on port 8000...')
+    http.serve_forever()
+    
+    
+    
