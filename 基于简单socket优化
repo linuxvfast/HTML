@@ -1,0 +1,37 @@
+from wsgiref.simple_server import make_server
+
+def handler_index():
+    return ['<h1>Hello,index!</h1>'.encode('utf-8')]
+
+def handler_date():
+    return ['<h1>Hello,date!</h1>'.encode('utf-8')]
+
+dict_func = { #当有多个访问url时可以设置一个字典，不用多次修改runserver函数的代码
+    '/index':handler_index,
+    '/date':handler_date,
+}
+def runserver(environ,start_response):
+    '''
+    :param environ: 客户来的所有数据
+    :param start_response: 封装要返回给用户的数据，如响应头状态
+    :return:
+    '''
+    start_response('200 OK',[('Content-Type','text/html')])
+    current_url = environ['PATH_INFO'] #获取当前的访问url
+    # if current_url == '/index':
+    #     return handler_index()
+    # elif current_url == '/date':
+    #     return handler_date()
+    # else:
+    func = None
+    if current_url in dict_func:
+        func = dict_func[current_url]
+    if func:
+        return func()
+    else:
+        return ['<h1>404</h1>'.encode('utf-8')]
+
+if __name__ == '__main__':
+    http = make_server('',8000,runserver)
+    print('serving http on port 8000...')
+    http.serve_forever()
