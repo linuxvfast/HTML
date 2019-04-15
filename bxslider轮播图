@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="jquery.bxslider.css">
+
+</head>
+<body>
+    <ul class="bxslider">
+        <!--图片大小可以使用width指定-->
+        <li><img src="images/pic1.jpg" style="width: 1240px"/></li>
+        <li><img src="images/pic2.jpg" /></li>
+        <li><img src="images/pic3.jpg" /></li>
+    </ul>
+
+    <script src="jquery-3.1.1.js"></script>
+    <script src="jquery.bxslider.js"></script>
+    <script>
+        $(function(){
+            $('.bxslider').bxSlider();
+        });
+    </script>
+</body>
+</html>
+
+
+可以参考官网https://bxslider.com/
